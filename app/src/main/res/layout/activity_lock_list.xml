@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LockListActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please wait \n loading raw news..."
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"/>
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <Button
+        android:id="@+id/Approving"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="6dp"
+        android:background="@drawable/circular_button"
+        android:padding="6dp"
+        android:text="To Approve"
+        android:textColor="#ffffff"
+        android:includeFontPadding="false"/>
+
+
+    <RelativeLayout
+        android:id="@+id/progressLockList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99ffffff"
+        android:visibility="gone"
+        >
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/progress_circular2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            style="@android:style/Widget.ProgressBar.Large"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please wait \nadding more raw news..."
+            android:layout_below="@+id/progress_circular2"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="#547A1D"
+            android:layout_margin="12dp"/>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

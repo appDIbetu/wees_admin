@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PostFeed">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<Button
+    android:id="@+id/clearAll"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Back"
+    android:layout_centerHorizontal="true"
+    android:layout_margin="8dp"
+    android:background="@drawable/circular_button"
+    />
+<LinearLayout
+    android:id="@+id/tok_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="8dp"
+    android:layout_below="@+id/clearAll">
+    <TextView
+        android:layout_margin="6dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Token"/>
+
+    <EditText
+        android:id="@+id/tok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="token provided by company"
+        android:background="@drawable/circular"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:textColor="#6c6c6c"/>
+</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/url_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tok_layout"
+        android:orientation="vertical"
+        android:layout_margin="8dp">
+        <TextView
+            android:layout_margin="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="URL of news site"/>
+    <EditText
+        android:id="@+id/url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="url link of news site"
+        android:background="@drawable/circular"
+        android:textSize="14sp"
+        android:textStyle="normal"
+        android:textColor="#6c6c6c"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/thumbnail_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/url_layout"
+        android:orientation="vertical"
+        android:layout_margin="8dp">
+        <TextView
+            android:layout_margin="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="URL of image"/>
+        <EditText
+            android:id="@+id/thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="link with .jpg, .png etc format"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/title_nepali_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/thumbnail_layout"
+        android:orientation="vertical"
+        android:layout_margin="8dp">
+        <TextView
+            android:layout_margin="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title in Nepali"/>
+        <EditText
+            android:id="@+id/title_nepali"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="can be copied"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/description_nepali_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_nepali_layout"
+        android:orientation="vertical"
+        android:layout_margin="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="6dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description in Nepali"/>
+
+            <TextView
+                android:id="@+id/countN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:textColor="#547A1D"
+               />
+        </LinearLayout>
+        <EditText
+            android:id="@+id/description_nepali"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="around 60 words"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/headLine_nepali_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/description_nepali_layout"
+        android:orientation="vertical"
+        android:layout_margin="8dp">
+        <TextView
+            android:layout_margin="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HeadLine in Nepali"/>
+        <EditText
+            android:id="@+id/headLine_nepali"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="max 7 words"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/title_english_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headLine_nepali_layout"
+        android:orientation="vertical"
+        android:layout_margin="8dp">
+        <TextView
+            android:layout_margin="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title in English"/>
+        <EditText
+            android:id="@+id/title_english"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="can be copied"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/description_english_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_english_layout"
+        android:orientation="vertical"
+        android:layout_margin="8dp">
+
+        <LinearLayout
+            android:layout_margin="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description in English"/>
+            <TextView
+                android:id="@+id/countE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:textColor="#547A1D"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/description_english"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="around 60 words"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/headLine_english_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/description_english_layout"
+        android:orientation="vertical"
+        android:layout_margin="8dp">
+        <TextView
+            android:layout_margin="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HeadLine in English"/>
+        <EditText
+            android:id="@+id/headLine_english"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="max 7 words"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/priority_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headLine_english_layout"
+        android:orientation="vertical"
+        android:layout_margin="8dp">
+        <TextView
+            android:layout_margin="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Priority"/>
+        <EditText
+            android:id="@+id/priority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="0 or 1"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"/>
+    </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/topic_a_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/priority_layout"
+            android:orientation="vertical"
+            android:layout_margin="8dp">
+            <TextView
+                android:layout_margin="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TopicA"/>
+            <EditText
+                android:id="@+id/topic_a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="topic1 from above given topics"
+                android:background="@drawable/circular"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:textColor="#6c6c6c"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/topic_b_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topic_a_layout"
+            android:orientation="vertical"
+            android:layout_margin="8dp">
+            <TextView
+                android:layout_margin="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TopicB"/>
+            <EditText
+                android:id="@+id/topic_b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="topic2 from above given topics"
+                android:background="@drawable/circular"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:textColor="#6c6c6c"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/topic_c_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topic_b_layout"
+            android:orientation="vertical"
+            android:layout_margin="8dp">
+            <TextView
+                android:layout_margin="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TopicC"/>
+
+            <EditText
+                android:id="@+id/topic_c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="topic3 from above given topics"
+                android:background="@drawable/circular"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:textColor="#6c6c6c"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/source_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/topic_c_layout"
+            android:orientation="vertical"
+            android:layout_margin="8dp">
+
+            <TextView
+                android:layout_margin="6dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Source"/>
+
+            <EditText
+                android:id="@+id/source"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="source_name"
+                android:background="@drawable/circular"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                android:textColor="#6c6c6c"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Send"
+            android:layout_margin="8dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/source_layout"
+            android:background="@drawable/circular_button"/>
+    </RelativeLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99ffffff"
+        android:visibility="gone"
+        >
+
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progress_circular1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        style="@android:style/Widget.ProgressBar.Large"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please wait \nadding wee to the server..."
+            android:layout_below="@+id/progress_circular1"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="#547A1D"
+            android:layout_margin="12dp"/>
+
+    </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>

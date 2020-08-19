@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffffff"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="4dp">
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/circular_card"
+
+        >
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/thumbnailA"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="10dp"
+            android:scaleType="centerCrop"
+            android:layout_margin="4dp"/>
+
+
+        <EditText
+            android:layout_margin="4dp"
+            android:background="@drawable/circular"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"
+            android:id="@+id/thumbnail_Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp" />
+
+
+        <EditText
+            android:background="@drawable/circular"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"
+            android:id="@+id/urlA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:layout_margin="4dp"/>
+
+
+        <EditText
+            android:layout_margin="4dp"
+            android:background="@drawable/circular"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"
+            android:id="@+id/authorA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp" />
+
+
+        <EditText
+            android:layout_margin="4dp"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"
+            android:id="@+id/newsSiteA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"/>
+
+        <EditText
+            android:layout_margin="4dp"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"
+            android:id="@+id/titleNepali"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"/>
+        <EditText
+            android:layout_margin="4dp"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"
+            android:id="@+id/descriptionNepali"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"/>
+        <EditText
+            android:layout_margin="4dp"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"
+            android:id="@+id/headLineNepali"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"/>
+        <EditText
+            android:layout_margin="4dp"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"
+            android:id="@+id/titleEnglish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"/>
+        <EditText
+            android:layout_margin="4dp"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"
+            android:id="@+id/descriptionEnglish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"/>
+        <EditText
+            android:layout_margin="4dp"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"
+            android:id="@+id/headLineEnglish"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"/>
+        <EditText
+            android:layout_margin="4dp"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"
+            android:id="@+id/topicA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"/>
+        <EditText
+            android:layout_margin="4dp"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"
+            android:id="@+id/topicB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"/>
+
+        <EditText
+            android:layout_margin="4dp"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"
+            android:id="@+id/topicC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"/>
+
+        <EditText
+            android:layout_margin="4dp"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"
+            android:id="@+id/statusEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"/>
+
+        <EditText
+            android:layout_margin="4dp"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"
+            android:id="@+id/priority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"/>
+
+        <EditText
+            android:layout_margin="4dp"
+            android:background="@drawable/circular"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"
+            android:id="@+id/tokenApprove"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="YOUR TOKEN"
+            android:padding="4dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="8dp">
+        <Button
+            android:layout_margin="4dp"
+            android:id="@+id/ApproveButton"
+            android:background="@drawable/circular_button"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            android:textColor="#6c6c6c"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Approve"
+            android:padding="10dp"
+            android:layout_gravity="center_vertical" />
+            <TextView
+                android:layout_margin="4dp"
+                android:background="@drawable/circular"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                android:textColor="#558B2F"
+                android:id="@+id/statusA"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/progressApprove"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#99ffffff"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="6dp"
+        >
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/progress_circular2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            style="@android:style/Widget.ProgressBar.Large"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please wait \nadding wee to the server..."
+            android:layout_below="@+id/progress_circular2"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textColor="#547A1D"
+            android:layout_margin="12dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

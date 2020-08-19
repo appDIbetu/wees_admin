@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WebViewFragment"
+    android:background="#f0f0f0">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <RelativeLayout
+        android:id="@+id/webViewTitleBar"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#000000">
+
+
+     <!--   <ImageView
+            android:id="@+id/web_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="4dp"
+            android:layout_centerVertical="true"/>
+-->
+
+        <EditText
+            android:id="@+id/url_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/circular"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:hint="Enter url to load"
+            android:textColor="#515151"
+            android:includeFontPadding="false"
+            android:textSize="14sp"
+            />
+
+        <ImageView
+            android:id="@+id/web_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="4dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_refresh_24px"/>
+
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/webViewFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/webViewTitleBar"
+        />
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:max="100"
+        android:progress="100"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/webViewTitleBar"
+        android:layout_centerInParent="true"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>

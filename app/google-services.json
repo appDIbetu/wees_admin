@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "357316675210",
+    "firebase_url": "https://dlfirst-244317.firebaseio.com",
+    "project_id": "dlfirst-244317",
+    "storage_bucket": "dlfirst-244317.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357316675210:android:1738a5ca7fc12a7c0d4f73",
+        "android_client_info": {
+          "package_name": "com.crd.pankshi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357316675210-efl9pmqjgaqc7afvu48k52v3jd7jlrmp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ9eqcSEhLoA3WO3iMDNPIYNYxM0NXFVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357316675210-efl9pmqjgaqc7afvu48k52v3jd7jlrmp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357316675210:android:f2bca611cf166b910d4f73",
+        "android_client_info": {
+          "package_name": "com.createdibetu.ccadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357316675210-efl9pmqjgaqc7afvu48k52v3jd7jlrmp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ9eqcSEhLoA3WO3iMDNPIYNYxM0NXFVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357316675210-efl9pmqjgaqc7afvu48k52v3jd7jlrmp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357316675210:android:4b27537b55509aa60d4f73",
+        "android_client_info": {
+          "package_name": "com.createdibetu.chhotochharrito"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357316675210-efl9pmqjgaqc7afvu48k52v3jd7jlrmp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ9eqcSEhLoA3WO3iMDNPIYNYxM0NXFVg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357316675210-efl9pmqjgaqc7afvu48k52v3jd7jlrmp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
