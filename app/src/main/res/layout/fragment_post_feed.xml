@@ -57,6 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="URL of news site"/>
+
     <EditText
         android:id="@+id/url"
         android:layout_width="match_parent"
@@ -67,11 +68,64 @@
         android:textStyle="normal"
         android:textColor="#6c6c6c"/>
     </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/imageUrl"
+            android:layout_below="@+id/url_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/bt_choose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CHOOSE"
+                    android:background="@color/colorPrimary"
+                    android:textColor="#ffffff" />
+
+                <View
+                    android:layout_width="0dip"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"/>
+
+
+                <Button
+                    android:id="@+id/bt_upload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:text="Upload"
+                    android:background="@color/colorPrimary"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+
+            <!--<TextView
+                android:id="@+id/tv_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="IMAGE URL"
+                android:textAlignment="center"
+                android:textIsSelectable="true" />-->
+
+        </LinearLayout>
+
+
+
     <LinearLayout
         android:id="@+id/thumbnail_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/url_layout"
+        android:layout_below="@+id/imageUrl"
         android:orientation="vertical"
         android:layout_margin="8dp">
         <TextView
@@ -79,6 +133,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="URL of image"/>
+
         <EditText
             android:id="@+id/thumbnail"
             android:layout_width="match_parent"
@@ -102,6 +157,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Title in Nepali"/>
+
         <EditText
             android:id="@+id/title_nepali"
             android:layout_width="match_parent"

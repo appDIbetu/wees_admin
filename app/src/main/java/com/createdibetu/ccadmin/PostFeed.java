@@ -1,13 +1,19 @@
 package com.createdibetu.ccadmin;
 
+import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -16,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -34,15 +41,27 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
+
+import static android.app.Activity.RESULT_OK;
 
 public class PostFeed extends Fragment {
 
@@ -53,6 +72,18 @@ public class PostFeed extends Fragment {
     private TextView countN, countE;
     private View rootview;
     private String url, titleNepaliText, descriptionNepaliText;
+    private Button ivChoose, ivUpload;
+    private EditText tvUrl;
+    private String fileName;
+
+    private static final int Selected = 100;
+    Uri uriImage;
+
+    FirebaseStorage storage;
+    StorageReference storageRef, imageRef;
+    ProgressDialog progressDialog;
+    UploadTask uploadTask;
+
     //private OnFragmentInteractionListener mListener;
 
     public PostFeed() {
@@ -100,7 +131,7 @@ public class PostFeed extends Fragment {
         token = rootview.findViewById(R.id.tok);
         token.setText(sharedPref.getString("remTok", ""));
         urlEdit = rootview.findViewById(R.id.url);
-        thumbnailEdit = rootview.findViewById(R.id.thumbnail);
+       thumbnailEdit = rootview.findViewById(R.id.thumbnail);
         titleNepali = rootview.findViewById(R.id.title_nepali);
         descriptionNepali = rootview.findViewById(R.id.description_nepali);
         headLineNepali = rootview.findViewById(R.id.headLine_nepali);
@@ -111,6 +142,13 @@ public class PostFeed extends Fragment {
         topic_a = rootview.findViewById(R.id.topic_a);
         topic_b = rootview.findViewById(R.id.topic_b);
         topic_c = rootview.findViewById(R.id.topic_c);
+        ivChoose = rootview.findViewById(R.id.bt_choose);
+        ivUpload = rootview.findViewById(R.id.bt_upload);
+        tvUrl = rootview.findViewById(R.id.thumbnail);
+        storage = FirebaseStorage.getInstance();
+        storageRef = storage.getReference();
+
+
 
         urlEdit.setText(url);
         thumbnailEdit.setText(thumbnail);
@@ -124,6 +162,27 @@ public class PostFeed extends Fragment {
         //topic_a.setText(((MainActivity) getActivity()).getTopicA());
         //topic_b.setText(((MainActivity) getActivity()).getTopicB());
         //topic_c.setText(((MainActivity) getActivity()).getTopicC());
+
+        ivChoose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent photopicker = new Intent(Intent.ACTION_PICK);
+                photopicker.setType("image/*");
+                startActivityForResult(photopicker, Selected);
+            }
+        });
+        ivUpload.setEnabled(true);
+        ivUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    UploadImage();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
 
         descriptionNepali.addTextChangedListener(new TextWatcher() {
             @Override
@@ -192,6 +251,94 @@ public class PostFeed extends Fragment {
         //Item item = ((MainActivity) getActivity()).getItem();
         return rootview;
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Selected) {
+            if (resultCode == RESULT_OK) {
+                assert data != null;
+                Log.v("uriImage"," Okey"+data);
+                uriImage = data.getData();
+                String name[]=uriImage.toString().split("/");
+                fileName=name[(name.length-1)];
+                Log.v("fileName"," Okey"+fileName);
+               /* try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver()
+                            , uriImage);
+                    ivResult.setImageBitmap(bitmap);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }*/
+
+            }
+
+        }
+    }
+
+    private void UploadImage()  throws IOException {
+
+        imageRef = storageRef.child("Images/" + fileName + "." + GetExtension(uriImage));
+        Bitmap bmp = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), uriImage);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.JPEG, 20, baos);
+        byte[] data = baos.toByteArray();
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMax(100);
+        progressDialog.setMessage("Uploading.....");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDialog.show();
+        progressDialog.setCancelable(true);
+
+        // uploadTask = imageRef.putFile(uriImage);
+        uploadTask = imageRef.putBytes(data);
+        uploadTask.addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
+                double progress = (100.0 * taskSnapshot.getBytesTransferred()) /
+                        taskSnapshot.getTotalByteCount();
+                progressDialog.incrementProgressBy((int) progress);
+
+            }
+        });
+        progressDialog.setCancelable(true);
+
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getContext(), "Failed !", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast.makeText(getContext(), "Successfully Uploaded !", Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
+
+
+                Task<Uri> task = Objects.requireNonNull(Objects.requireNonNull(taskSnapshot.getMetadata()).getReference()).getDownloadUrl();
+                task.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri downloadUrl) {
+                        String ImageURL = downloadUrl.toString();
+                        tvUrl.setText(ImageURL);
+                    }
+                });
+                //Uri downloadUrl = taskSnapshot.getUploadSessionUri();
+                // String ImageURL = downloadUrl.toString();
+                //tvUrl.setText(ImageURL);-->
+            }
+        });
+
+    }
+
+    private String GetExtension(Uri uriImage) {
+        ContentResolver contentResolver = getActivity().getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uriImage));
+    }
+
     private StringRequest stringRequest;
 
     private void sendRequest() {

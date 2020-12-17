@@ -27,6 +27,8 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
                 return new PostFeed();
             case 2:
                 return new RecyclerList();
+            case 3:
+                return new ImageLinkFragment();
             default:
                 return new WebViewFragment();
 
@@ -35,7 +37,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 
 }
